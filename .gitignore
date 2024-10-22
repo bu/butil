@@ -1,0 +1,5 @@
+# don't include workspace specific files
+go.work
+
+# don't include editor specific files
+.idea
