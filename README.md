@@ -8,4 +8,5 @@ Butils is a collection of utilities for everyday tasks.
 ```
 butils
     /env  -  Environment variables related utilities
+    /registry - Generic service registry related utilities
 ```
