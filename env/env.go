@@ -47,7 +47,11 @@ func GetInt(key string, defaults ...int64) int64 {
 
 	// Parse the value as an int
 	vInt, err := strconv.ParseInt(val, 10, 64)
-	if err != nil && !hasDefault {
+	if err != nil {
+		if hasDefault {
+			return defaults[0]
+		}
+
 		panic(fmt.Sprintf("[%s] Cannot parse environment variable %s as int, and there's no default value", envProvider.Name(), key))
 	}
 
