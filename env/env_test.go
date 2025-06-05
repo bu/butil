@@ -143,6 +143,14 @@ func TestGetInt(t *testing.T) {
 		GetInt("TEST_KEY_INVALID_VALUE")
 	})
 
+	t.Run("GetIntInvalidValueWithDefault", func(t *testing.T) {
+		expected := int64(789)
+
+		if actual := GetInt("TEST_KEY_INVALID_VALUE", expected); actual != expected {
+			t.Errorf("GetInt did not return the default value on invalid input, expected: %d, got: %d", expected, actual)
+		}
+	})
+
 	// Restore the original envProvider
 	envProvider = originalEnvProvider
 }
